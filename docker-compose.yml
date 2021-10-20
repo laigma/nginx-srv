@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  nginx-srv:    
+    image: nginx-srv:1.0.0
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        MODE: 'production'
+    container_name: nginx-srv
+    ports:
+      - 8100:80
