@@ -1,14 +1,14 @@
 version: "2"
 
 services:
-  nginx-static:
+  nginx-srv:
     image: nginx-static:1.0.0
     restart: unless-stopped
     build:
       context: ./
       dockerfile: Dockerfile.dev
       args:
-        MODE: 'production'
+        MODE: 'development'
     container_name: nginx-static
     ports:
       - 7000:80
