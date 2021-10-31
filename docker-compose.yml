@@ -1,14 +1,16 @@
 version: "2"
 
 services:
-  nginx-srv:    
-    image: nginx-srv:1.0.0
-    restart: always
+  nginx-static:
+    image: nginx-static:1.0.0
+    restart: unless-stopped
     build:
       context: ./
       dockerfile: Dockerfile
       args:
         MODE: 'production'
-    container_name: nginx-srv
+    container_name: nginx-static
     ports:
-      - 8100:80
+      - 7000:80
+    volumes:
+      - /media/FRONT_REPO:/usr/share/nginx/html
