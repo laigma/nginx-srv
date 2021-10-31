@@ -1,9 +1,9 @@
 version: "2"
 
 services:
-  nginx-static:
+  nginx-srv:    
     image: nginx-static:1.0.0
-    restart: unless-stopped
+    restart: always
     build:
       context: ./
       dockerfile: Dockerfile
@@ -13,4 +13,4 @@ services:
     ports:
       - 7000:80
     volumes:
-      - /media/FRONT_REPO:/usr/share/nginx/html
+      - /media/nas:/usr/share/nginx/html
